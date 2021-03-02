@@ -25,11 +25,24 @@ public class PartidaXadrez {
 		return mat;
 	}
 	
-	private void iniciarPartida() {
-		tabuleiro.ColocarPeca(new Tower(tabuleiro, Color.BRANCO), new Posicao(2,1));
-		tabuleiro.ColocarPeca(new Rei(tabuleiro, Color.PRETO), new Posicao(0,4));
-		tabuleiro.ColocarPeca(new Rei(tabuleiro, Color.BRANCO), new Posicao(7,4));
-		
+	private void colocarNovaPeca(char coluna, int linha, PecadeXadrez peca) {
+		tabuleiro.ColocarPeca(peca, new XadrezPosicao(coluna,linha).toPosicao());
+	}
+	
+	private void iniciarPartida() {		
+		colocarNovaPeca('c', 1, new Tower(tabuleiro, Color.BRANCO));
+		colocarNovaPeca('c', 2, new Tower(tabuleiro, Color.BRANCO));
+		colocarNovaPeca('d', 2, new Tower(tabuleiro, Color.BRANCO));
+        colocarNovaPeca('e', 2, new Tower(tabuleiro, Color.BRANCO));
+        colocarNovaPeca('e', 1, new Tower(tabuleiro, Color.BRANCO));
+        colocarNovaPeca('d', 1, new Rei(tabuleiro, Color.BRANCO));
+
+        colocarNovaPeca('c', 7, new Tower(tabuleiro, Color.PRETO));
+        colocarNovaPeca('c', 8, new Tower(tabuleiro, Color.PRETO));
+        colocarNovaPeca('d', 7, new Tower(tabuleiro, Color.PRETO));
+        colocarNovaPeca('e', 7, new Tower(tabuleiro, Color.PRETO));
+        colocarNovaPeca('e', 8, new Tower(tabuleiro, Color.PRETO));
+        colocarNovaPeca('d', 8, new Rei(tabuleiro, Color.PRETO));
 		
 	}
 }
